@@ -13,14 +13,14 @@ namespace WindowsFormsApplication1
         private int rPent;
         private int hPent;
         Pentagon pentagon;
-        Pentagon petagon;
+        //Pentagon petagon;
         private Pentagon pentCopy;
 
         private int rCyl;
         private int hCyl;
         private int _N;
         Cylinder cylinder;
-        Cylinder cyinder;
+        //Cylinder cyinder;
         private Cylinder cylCopy;
 
         Pen pen = new Pen(Color.Black, 1);
@@ -63,55 +63,55 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void DrawCylinderXY(Cylinder cylinder)
+        private void DrawCylinderXY(Cylinder cylinderD)
         {
             for (int i = 0; i < _N; i++)
             {
                 if (i == _N - 1)
-                    formGraphics.DrawLine(pen, (float)cylinder[i].X, (float)cylinder[i].Y, (float)cylinder[0].X, (float)cylinder[0].Y);
+                    formGraphics.DrawLine(pen, (float)cylinderD[i].X, (float)cylinderD[i].Y, (float)cylinderD[0].X, (float)cylinderD[0].Y);
                 else
-                    formGraphics.DrawLine(pen, (float)cylinder[i].X, (float)cylinder[i].Y, (float)cylinder[i + 1].X,
-                        (float)cylinder[i + 1].Y);
+                    formGraphics.DrawLine(pen, (float)cylinderD[i].X, (float)cylinderD[i].Y, (float)cylinderD[i + 1].X,
+                        (float)cylinderD[i + 1].Y);
             }
             for (int i = 0; i < _N; i++)
             {
-                formGraphics.DrawLine(pen, (float)cylinder[i].X, (float)cylinder[i].Y, (float)cylinder[_N + i].X,
-                    (float)(cylinder[_N + i].Y));
+                formGraphics.DrawLine(pen, (float)cylinderD[i].X, (float)cylinderD[i].Y, (float)cylinderD[_N + i].X,
+                    (float)(cylinderD[_N + i].Y));
             }
             for (int i = _N; i < 2 * _N; i++)
             {
                 if (i == 2 * _N - 1)
-                    formGraphics.DrawLine(pen, (float)cylinder[i].X, (float)cylinder[i].Y, (float)cylinder[_N].X, (float)cylinder[_N].Y);
+                    formGraphics.DrawLine(pen, (float)cylinderD[i].X, (float)cylinderD[i].Y, (float)cylinderD[_N].X, (float)cylinderD[_N].Y);
                 else
-                    formGraphics.DrawLine(pen, (float)cylinder[i].X, (float)cylinder[i].Y, (float)cylinder[i + 1].X,
-                        (float)cylinder[i + 1].Y);
+                    formGraphics.DrawLine(pen, (float)cylinderD[i].X, (float)cylinderD[i].Y, (float)cylinderD[i + 1].X,
+                        (float)cylinderD[i + 1].Y);
             }
         }
 
-        private void DrawPentagonXY(Pentagon pentagon)
+        private void DrawPentagonXY(Pentagon pentagonD)
         {
             for (int i = 0; i < 3; i++)
             {
                 if (i == 2)
                 {
-                    formGraphics.DrawLine(pen, (float)pentagon[i].X, (float)pentagon[i].Y, (float)pentagon[i - 2].X,
-                          (float)pentagon[i - 2].Y);
+                    formGraphics.DrawLine(pen, (float)pentagonD[i].X, (float)pentagonD[i].Y, (float)pentagonD[i - 2].X,
+                          (float)pentagonD[i - 2].Y);
 
-                    formGraphics.DrawLine(pen, (float)pentagon[i + 3].X, (float)pentagon[i + 3].Y, (float)pentagon[i + 1].X,
-                        (float)pentagon[i + 1].Y);
+                    formGraphics.DrawLine(pen, (float)pentagonD[i + 3].X, (float)pentagonD[i + 3].Y, (float)pentagonD[i + 1].X,
+                        (float)pentagonD[i + 1].Y);
                 }
                 else
                 {
-                    formGraphics.DrawLine(pen, (float)pentagon[i].X, (float)pentagon[i].Y, (float)pentagon[i + 1].X,
-                        (float)pentagon[i + 1].Y);
+                    formGraphics.DrawLine(pen, (float)pentagonD[i].X, (float)pentagonD[i].Y, (float)pentagonD[i + 1].X,
+                        (float)pentagonD[i + 1].Y);
 
-                    formGraphics.DrawLine(pen, (float)pentagon[i + 3].X, (float)pentagon[i + 3].Y, (float)pentagon[i + 4].X,
-                        (float)pentagon[i + 4].Y);
+                    formGraphics.DrawLine(pen, (float)pentagonD[i + 3].X, (float)pentagonD[i + 3].Y, (float)pentagonD[i + 4].X,
+                        (float)pentagonD[i + 4].Y);
                 }
             }
             for (int i = 0; i < 3; i++)
-                formGraphics.DrawLine(pen, (float)pentagon[i].X, (float)pentagon[i].Y, (float)pentagon[i + 3].X,
-                    (float)pentagon[i + 3].Y);
+                formGraphics.DrawLine(pen, (float)pentagonD[i].X, (float)pentagonD[i].Y, (float)pentagonD[i + 3].X,
+                    (float)pentagonD[i + 3].Y);
         }
 
         private void DrawWithoutLines(Pentagon pentagonС, Cylinder cylinderС)
@@ -369,14 +369,14 @@ namespace WindowsFormsApplication1
                     }
                     break;
 
-                case "Cos":
+                case "cos":
                     double alpha = Double.Parse(textBox15.Text) * Math.PI / 180;
                     double l = Double.Parse(textBox16.Text);
                     formGraphics.Clear(BackColor);
                     pentCopy = pentagon.DeepCopy();
                     cylCopy = cylinder.DeepCopy();
                     new Projections(xo, yo, zo).CosProjection(alpha, l, pentCopy, cylCopy, _N);
-                    if (checkBox1.Checked)
+                    if (checkBox4.Checked)
                         DrawWithoutLines(pentCopy, cylCopy);
                     else
                     {
@@ -417,31 +417,31 @@ namespace WindowsFormsApplication1
         }
 
 
-        private void OrtProjection(double[,] T) 
-        {
-            try {
-                double[,] result = new double[1, 4] { { 0, 0, 0, 0 } };
+        //private void OrtProjection(double[,] T) 
+        //{
+        //    try {
+        //        double[,] result = new double[1, 4] { { 0, 0, 0, 0 } };
 
-                for (int i = 0; i < 6; i++)
-                {
-                    double[,] s = new double[1, 4] { { petagon[i].X - xo, petagon[i].Y - yo, petagon[i].Z - zo, 1 } };
-                    result = matrix.multiplyMatrixs(s, T);
-                    petagon[i].X = result[0, 0] + xo;
-                    petagon[i].Y = result[0, 1] + yo;
-                    petagon[i].Z = result[0, 2] + zo;
-                }
-                result = new double[1, 4] { { 0, 0, 0, 0 } };
-                for (int i = 0; i < 2 * _N; i++)
-                {
-                    double[,] s = new double[1, 4] { { cyinder[i].X - xo, cyinder[i].Y - yo, cyinder[i].Z - zo, 1 } };
-                    result = matrix.multiplyMatrixs(s, T);
-                    cyinder[i].X = result[0, 0] + xo;
-                    cyinder[i].Y = result[0, 1] + yo;
-                    cyinder[i].Z = result[0, 2] + zo;
-                }
-            } catch(NullReferenceException e){}
+        //        for (int i = 0; i < 6; i++)
+        //        {
+        //            double[,] s = new double[1, 4] { { petagon[i].X - xo, petagon[i].Y - yo, petagon[i].Z - zo, 1 } };
+        //            result = matrix.multiplyMatrixs(s, T);
+        //            petagon[i].X = result[0, 0] + xo;
+        //            petagon[i].Y = result[0, 1] + yo;
+        //            petagon[i].Z = result[0, 2] + zo;
+        //        }
+        //        result = new double[1, 4] { { 0, 0, 0, 0 } };
+        //        for (int i = 0; i < 2 * _N; i++)
+        //        {
+        //            double[,] s = new double[1, 4] { { cyinder[i].X - xo, cyinder[i].Y - yo, cyinder[i].Z - zo, 1 } };
+        //            result = matrix.multiplyMatrixs(s, T);
+        //            cyinder[i].X = result[0, 0] + xo;
+        //            cyinder[i].Y = result[0, 1] + yo;
+        //            cyinder[i].Z = result[0, 2] + zo;
+        //        }
+        //    } catch(NullReferenceException e){}
             
-        }
+        //}
    
 
         

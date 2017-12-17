@@ -170,7 +170,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(54, 20);
             this.textBox4.TabIndex = 6;
-            this.textBox4.Text = "50";
+            this.textBox4.Text = "40";
             // 
             // textBox5
             // 
@@ -758,6 +758,7 @@
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(54, 20);
             this.textBox20.TabIndex = 8;
+            this.textBox20.Text = "0";
             // 
             // textBox19
             // 
@@ -765,6 +766,7 @@
             this.textBox19.Name = "textBox19";
             this.textBox19.Size = new System.Drawing.Size(54, 20);
             this.textBox19.TabIndex = 7;
+            this.textBox19.Text = "0";
             // 
             // textBox18
             // 
@@ -772,6 +774,7 @@
             this.textBox18.Name = "textBox18";
             this.textBox18.Size = new System.Drawing.Size(54, 20);
             this.textBox18.TabIndex = 6;
+            this.textBox18.Text = "100";
             // 
             // textBox17
             // 
